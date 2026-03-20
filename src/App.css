@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f5f0e8;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9bfa8' fill-opacity='0.18'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.app {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+}
+
+.app-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  border-bottom: 2px solid #1a1a2e;
+  padding-bottom: 1rem;
+}
+
+.app-header h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2.6rem;
+  font-weight: 400;
+  color: #1a1a2e;
+  letter-spacing: -0.5px;
+  font-style: italic;
+}
+
+.task-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  background: #e2d9c5;
+  padding: 0.25rem 0.7rem;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.task-form {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.task-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid #1a1a2e;
+  border-radius: 6px;
+  font-size: 0.975rem;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  background: #fdfaf4;
+  color: #1a1a2e;
+  transition: background 0.15s;
+}
+
+.task-input::placeholder {
+  color: #a89f8c;
+}
+
+.task-input:focus {
+  background: #fff;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-btn {
+  padding: 0.35rem 0.9rem;
+  border: 1.5px solid #c9bfa8;
+  border-radius: 3px;
+  background: transparent;
+  font-size: 0.8rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  color: #6b6151;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.12s;
+}
+
+.filter-btn:hover {
+  border-color: #1a1a2e;
+  color: #1a1a2e;
+}
+
+.filter-btn.active {
+  background: #1a1a2e;
+  border-color: #1a1a2e;
+  color: #f5f0e8;
+}
+
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.empty-message {
+  text-align: center;
+  color: #a89f8c;
+  margin-top: 3rem;
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #fdfaf4;
+  border: 1.5px solid #ddd6c6;
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.task-item:hover {
+  border-color: #1a1a2e;
+  box-shadow: 3px 3px 0px #1a1a2e;
+}
+
+.task-item.completed {
+  opacity: 0.55;
+}
+
+.task-item.completed .task-title {
+  text-decoration: line-through;
+  color: #a89f8c;
+}
+
+.task-checkbox {
+  width: 17px;
+  height: 17px;
+  accent-color: #1a1a2e;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.task-title {
+  flex: 1;
+  font-size: 0.975rem;
+  cursor: pointer;
+  word-break: break-word;
+  color: #1a1a2e;
+}
+
+.task-edit-input {
+  flex: 1;
+  padding: 0.3rem 0.5rem;
+  border: 1.5px solid #1a1a2e;
+  border-radius: 4px;
+  font-size: 0.975rem;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  background: #fff;
+}
+
+.task-actions {
+  display: flex;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.btn {
+  padding: 0.3rem 0.7rem;
+  border: 1.5px solid transparent;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: opacity 0.12s;
+}
+
+.btn:hover { opacity: 0.75; }
+
+.btn-add {
+  background: #1a1a2e;
+  color: #f5f0e8;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border-color: #1a1a2e;
+  white-space: nowrap;
+}
+
+.btn-edit   { background: #e8e2d6; color: #3d3425; border-color: #c9bfa8; }
+.btn-delete { background: #fce8e8; color: #b91c1c; border-color: #f5c6c6; }
+.btn-save   { background: #e0f2e9; color: #14532d; border-color: #a7d9b8; }
+.btn-cancel { background: #e8e2d6; color: #3d3425; border-color: #c9bfa8; }
+
+@media (max-width: 500px) {
+  .app-header h1 { font-size: 2rem; }
+  .task-form { flex-direction: column; }
+  .btn-add { width: 100%; }
+}
